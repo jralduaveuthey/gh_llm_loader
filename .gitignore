@@ -1,0 +1,5 @@
+# ignores everything in this folder besides the .txt files
+cloned_repos/*
+!cloned_repos/*.txt
+gh_llm_loader/__pycache__/*
+gh_llm_loader.egg-info/*
