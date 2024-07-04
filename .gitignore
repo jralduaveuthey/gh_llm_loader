@@ -3,3 +3,4 @@ cloned_repos/*
 !cloned_repos/*.txt
 gh_llm_loader/__pycache__/*
 gh_llm_loader.egg-info/*
+my_scripts/output_mds/*.md
