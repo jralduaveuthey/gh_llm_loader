@@ -4,3 +4,7 @@ cloned_repos/*
 gh_llm_loader/__pycache__/*
 gh_llm_loader.egg-info/*
 my_scripts/output_mds/*.md
+
+.env
+logs/
+__pycache__/

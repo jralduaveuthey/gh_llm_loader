@@ -2,8 +2,23 @@ import os
 import re
 
 # Define your arguments here
-ROOT_PATH = r"C:\Users\jraldua-veuthey\Documents\Github\control-evaluations\monitoring"
-OUTPUT_FILE = r"C:\Users\jraldua-veuthey\Documents\Github\gh_llm_loader\my_scripts\output_mds\control-evaluations_monitoring.md"
+
+# CONTROL EVALUATIONS
+ROOT_PATH = r"C:\Users\jraldua-veuthey\Documents\Github\backdoor_control_spar"
+RELATIVE_FILE = "backdoor_control_spar.md"
+
+## CYBERSECURITY BENCHMARKS
+# ROOT_PATH = r"C:\Users\jraldua-veuthey\Documents\Github\cyberseceval-errors\CybersecurityBenchmarks\scripts"
+# RELATIVE_FILE = "CybersecurityBenchmarks.md"
+
+# # MAROS
+# ROOT_PATH = r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\schemas"
+# ROOT_PATH = r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\samples"
+# RELATIVE_FILE = "AT_schemas.md"
+# RELATIVE_FILE = "AT_samples.md"
+
+BASE_PATH = r"C:\Users\jraldua-veuthey\Documents\Github\gh_llm_loader\my_scripts\output_mds"
+OUTPUT_FILE = os.path.join(BASE_PATH, RELATIVE_FILE)
 IGNORE_FILES = []
 IGNORE_FOLDERS = []
 IGNORE_EXTENSIONS = []
@@ -12,13 +27,51 @@ REMOVE_PYTHON_COMMENTS = False
 # Whitelist mode settings
 USE_WHITELIST = True
 WHITELIST = [
-    r"C:\Users\jraldua-veuthey\Documents\Github\control-evaluations\monitoring\experiments_setup_notebook.py",
-    r"C:\Users\jraldua-veuthey\Documents\Github\control-evaluations\monitoring\backdoor_funcs.py",
-    r"C:\Users\jraldua-veuthey\Documents\Github\control-evaluations\monitoring\problem_setup.py",
-    r"C:\Users\jraldua-veuthey\Documents\Github\control-evaluations\monitoring\correctness_evaluation_python.py",
-    r"C:\Users\jraldua-veuthey\Documents\Github\control-evaluations\rrutils\redis_cache_wrapper.py",
-    r"C:\Users\jraldua-veuthey\Documents\Github\control-evaluations\monitoring\make_plots.py",
-    r"C:\Users\jraldua-veuthey\Documents\Github\control-evaluations\elk\func_correct\exec_code.py",
+    # CONTROL EVALUATIONS
+    r"C:\Users\jraldua-veuthey\Documents\Github\backdoor_control_spar\src\code_evaluation",
+    r"C:\Users\jraldua-veuthey\Documents\Github\backdoor_control_spar\src\model_querying",
+    r"C:\Users\jraldua-veuthey\Documents\Github\backdoor_control_spar\src\monitoring",
+    r"C:\Users\jraldua-veuthey\Documents\Github\backdoor_control_spar\src\pipeline",
+    r"C:\Users\jraldua-veuthey\Documents\Github\backdoor_control_spar\src\runners",
+    r"C:\Users\jraldua-veuthey\Documents\Github\backdoor_control_spar\core\llm_api",
+    
+    # CYBERSECURITY BENCHMARKS
+    # r"C:\Users\jraldua-veuthey\Documents\Github\cyberseceval-errors\CybersecurityBenchmarks\scripts\analysis_instruct.py",
+    # r"C:\Users\jraldua-veuthey\Documents\Github\cyberseceval-errors\CybersecurityBenchmarks\scripts\move_bad_data_instruct.py",
+    # r"C:\Users\jraldua-veuthey\Documents\Github\cyberseceval-errors\CybersecurityBenchmarks\scripts\plot_cyberattack_helpfulness_results.py",
+    # r"C:\Users\jraldua-veuthey\Documents\Github\cyberseceval-errors\CybersecurityBenchmarks\scripts\plot_insecure_code_results.py",
+    # r"C:\Users\jraldua-veuthey\Documents\Github\cyberseceval-errors\CybersecurityBenchmarks\scripts\process_false_positives.py",
+    # r"C:\Users\jraldua-veuthey\Documents\Github\cyberseceval-errors\CybersecurityBenchmarks\scripts\remove_bad_data_instruct.py",
+    # r"C:\Users\jraldua-veuthey\Documents\Github\cyberseceval-errors\CybersecurityBenchmarks\scripts\remove_bad_examples_from_instruct_json.py",
+    # r"C:\Users\jraldua-veuthey\Documents\Github\cyberseceval-errors\CybersecurityBenchmarks\scripts\run_lint.sh",
+    # r"C:\Users\jraldua-veuthey\Documents\Github\cyberseceval-errors\CybersecurityBenchmarks\scripts\run_tests.sh",
+    # r"C:\Users\jraldua-veuthey\Documents\Github\cyberseceval-errors\CybersecurityBenchmarks\scripts\second_pass_bad_data_instruct.py",
+    # r"C:\Users\jraldua-veuthey\Documents\Github\cyberseceval-errors\CybersecurityBenchmarks\scripts\with_versus_without_instruct_comparison.py",
+
+    # # CYBERSECURITY BENCHMARKS
+    # r"C:\Users\jraldua-veuthey\Videos\PRIVAT!\Apart\Zainab_Suhas_28-06-2024 13-30-56.md",
+    # r"C:\Users\jraldua-veuthey\Videos\PRIVAT!\Apart\08-07-2024 20-00-35.md",
+    # r"C:\Users\jraldua-veuthey\Videos\PRIVAT!\Apart\03-07-2024 20-20-22.md",
+
+    # # MAROS - AT schemas
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\schemas\ATinterface.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\schemas\Components.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\schemas\Geometries.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\schemas\Objects.json",
+
+    # MAROS - AT samples
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\samples\BufferStop.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\samples\CatenaryPole.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\samples\Fence.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\samples\FuseBox.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\samples\HandRail.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\samples\Platform.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\samples\Rail.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\samples\SignalPole.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\samples\SignPole.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\samples\Wall.json",
+    # r"C:\other_prjs\sim_alg\Map\map_related_functions_matlab\local_tests\AT\AT Map Interface v1\samples\Wire.json",
+
 ]
 
 def read_file_content(file_path):
@@ -44,6 +97,23 @@ def remove_python_comments(content):
     
     return content
 
+def get_python_files_in_folder(folder_path):
+    python_files = []
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            if file.endswith('.py'):
+                python_files.append(os.path.join(root, file))
+    return python_files
+
+def expand_whitelist(whitelist):
+    expanded_whitelist = []
+    for item in whitelist:
+        if '.' not in item.split('\\')[-1] and '.' not in item.split('/')[-1]:  # It's a folder
+            expanded_whitelist.extend(get_python_files_in_folder(item))
+        else:  # It's a file
+            expanded_whitelist.append(item)
+    return expanded_whitelist
+
 def should_include(path, root_path):
     if USE_WHITELIST:
         return path in WHITELIST
@@ -67,8 +137,9 @@ def get_new_output_file(output_file):
 
 def create_markdown(root_path, output_file):
     output_file = get_new_output_file(output_file)
+    expanded_whitelist = expand_whitelist(WHITELIST)
     with open(output_file, 'w', encoding='utf-8') as output:
-        for file_path in WHITELIST:
+        for file_path in expanded_whitelist:
             if os.path.exists(file_path):
                 relative_path = os.path.relpath(file_path, root_path)
                 output.write(f"# {relative_path}\n\n")
